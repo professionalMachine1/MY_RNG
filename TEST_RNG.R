@@ -2,12 +2,13 @@ library(Rcpp);
 
 sourceCpp("qrng.cpp");
 
-N = 100000;
+N = 10000;
+initialize_rng();
 x <- generate_rn(N);
 plot(x[1:N-1], x[2:N]);
-hist(x, 15);
+hist(x, 20);
 
-ks.test(x, punif)
+ks.test(x, punif);
 
 N = N - 1;
 x_3d <- data.frame(x1 = x[seq(1, N, 3)], 
